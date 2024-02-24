@@ -4,7 +4,19 @@
 #include <chrono>
 #include <thread>
 #include <iomanip>
+#include <limits>
 
+template <typename T>
+  T getInput(const std::string& prompt){
+      T value;
+      while(!(std::cout<<prompt && std::cin>>value)){
+          std::cin.clear();
+          std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+          std::cerr<<"Invalid input. Try again."<<std::endl;
+      }
+      return value;
+  }
+  
 void TiMe(){
 	       //Message.
 	       std::cout<<"Time dilation."<<std::endl;
@@ -23,15 +35,8 @@ void lOgA(){
          //Message.
          std::cout<<"Logarithm."<<std::endl;
          //Declaring the log and base.
-         double num1, num2;
-         //Message.
-         std::cout<<"Enter the base of the logarithm: ";
-         //Taking input.
-         std::cin>>num1;
-         //Message.
-         std::cout<<"Enter the log: ";
-         //Taking input.
-         std::cin>>num2;   
+         double num1 = getInput<int>("Enter the base of the logarithm: ");
+         double num2 = getInput<int>("Enter the log: ");  
          //Calculations.      
          double loga  = std::log(num1)/std::log(num2);
          //Print the calculation with a precision of 4.
@@ -40,23 +45,13 @@ void lOgA(){
 
 void AdSb(){
          //Message.
-         std::cout<<"Addition, Subtraction, Divsion, Multiplication and Exponents."<<std::endl;
-         //Declaring the two numbers.
-         double num1, num2;
-         //Declaring the operator.
-         char oper;
-         //Message.
-         std::cout<<"Enter 1st number: ";
-         //Taking input.
-         std::cin>>num1;
-         //Message.
-         std::cout<<"Enter operator(+,-,/,*,^): ";
-         //Taking input.
-         std::cin>>oper;
-         //Message
-         std::cout<<"Enter 2nd number: ";
-         //Taking input.
-         std::cin>>num2;
+         std::cout<<"Addition, Subtraction, Divsion, Multiplication and Exponents."<<std::endl;         
+         //Declaring of variable, message and taking input.
+         double num1 = getInput<double>("Enter 1st number: ");  
+         //Declaring of variable, message and taking input.                          
+         char oper = getInput<char>("Enter operator(+,-,/,*,^): ");         
+          //Declaring of variable, message and taking input.
+         double num2 = getInput<double>("Enter 2nd number: ");         
          //Switch statement.
          switch(oper){
             //Plus
@@ -98,12 +93,10 @@ void GuEsS(){
          int lucky = 14;
          //Number of tries the user has.
          int tries = 5;
-         //Declaring of "user" variable.
-         int user;
          //Message.
-         std::cout<<"Guessing game.\nEnter a number(1-20): ";
+         std::cout<<"Guessing game."<<std::endl;
          //Taking input.
-         std::cin>>user;
+         int user = getInput<int>("Enter a number(1-20): ");
          //While loop.
          while(user != lucky){
              tries--;
@@ -111,8 +104,7 @@ void GuEsS(){
                  std::cout<<"You lose!"<<std::endl;
                  break;
              }
-            std::cout<<"Enter a number: ";
-            std::cin>>user;
+           user = getInput<int>("Enter a number(1-20): ");
          }
          //Message.
          if(user == lucky){
@@ -123,9 +115,8 @@ void GuEsS(){
 int main(){
 	 
 	 while(true){
-	 std::cout<<"\nA math related game.\nChoose any option from 1-5: time-1, logarithm-2, Add/Sub/etc-3, guessing_game-4, end_program-5.\nEnter their respective numbers to choose them: ";
-	   int op;
-	   std::cin>>op;
+	 std::cout<<"\nA math related game.\nChoose any option from 1-5: time-1, logarithm-2, Add/Sub/etc-3, guessing_game-4, end_program-5.\n";
+	   int op = getInput<int>("Enter their respective numbers to choose them: ");
 	   switch(op){
 	       case 1:
 	         TiMe();
