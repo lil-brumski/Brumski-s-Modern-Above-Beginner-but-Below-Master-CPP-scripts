@@ -123,7 +123,7 @@ void GuEsS(){
 int main(){
 	 
 	 while(true){
-	 std::cout<<"\nA math related game.\nChoose any option from 1-4: time-1, logarithm-2, Add/Sub/etc-3, guessing_game-4.\nEnter their respective numbers to choose them: ";
+	 std::cout<<"\nA math related game.\nChoose any option from 1-5: time-1, logarithm-2, Add/Sub/etc-3, guessing_game-4, end_program-5.\nEnter their respective numbers to choose them: ";
 	   int op;
 	   std::cin>>op;
 	   switch(op){
@@ -139,14 +139,13 @@ int main(){
 	       case 4:
 	         GuEsS();
 	         break;
+	       case 5:
+	        std::cout<<"Goodbye, see you later!"<<std::endl;
+	        return 0;
 	       default:
 	         std::cout<<"Invalid number"<<std::endl;
-	   }
+	      }
 	 
 	}  
-	 // TiMe();
-	 // lOgA();
-	 //AdSb();
-	 //GuEsS();
-	    
+
 }	
