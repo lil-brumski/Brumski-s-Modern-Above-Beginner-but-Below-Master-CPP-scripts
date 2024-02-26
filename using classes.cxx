@@ -29,10 +29,10 @@ std::string getInput<std::string>(const std::string& prompt){
       
       void about(){
               if(e18_or_above){
-                  std::cout<<"Name: "<<name<<".\nAge: "<<age<<".\nStudent: Yes"<<std::endl;
+                  std::cout<<"Name: "<<name<<".\nAge: "<<age<<".\nStudent: Yes."<<std::endl;
               }
               else{
-                  std::cout<<"Name: "<<name<<".\nAge: "<<age<<".\nStudent: Yes"<<std::endl;
+                  std::cout<<"Name: "<<name<<".\nAge: "<<age<<".\nStudent: No."<<std::endl;
               }
       }
       
