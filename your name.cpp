@@ -31,10 +31,10 @@ class Student{
     std::string likes;
             void about(){
               if(gender){
-                   std::cout<<"\nYour name is "<<name<<".\nYou are "<<age<<" years old.\nYou are a male.\nYou like: "<<likes<<std::endl;
+                   std::cout<<"\nYour name is "<<name<<".\nYou are "<<age<<" years old.\nYou are a male.\nYour interest(s): "<<likes<<std::endl;
                  }
              else{
-                      std::cout<<"\nYour name is "<<name<<".\nYou are "<<age<<" years old.\nYou are a female."<<std::endl;
+                      std::cout<<"\nYour name is "<<name<<".\nYou are "<<age<<" years old.\nYou are a female.\nYour interest(s): "<<std::endl;
                   }
            }
 };
