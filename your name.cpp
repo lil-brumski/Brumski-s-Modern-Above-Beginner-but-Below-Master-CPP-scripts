@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <string>
 
 template <typename T>
   T getInput(const std::string& prompt){
