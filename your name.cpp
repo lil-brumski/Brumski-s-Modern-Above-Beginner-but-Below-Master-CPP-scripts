@@ -31,6 +31,7 @@ class Student{
     int age;
     bool gender;
     std::string likes;
+
             void about(){
               if(gender){
                    //If the gender is 1(male), then this code will run.
@@ -48,10 +49,14 @@ int main(){
     
     //The class "Student" with its object "details".
     Student details;
+
     //The variables of "Students" belong to "details" now.
     details.name = getInput<std::string>("Enter your name: ");
+
     details.age = getInput<int>("Enter your age: ");
+
     details.gender = getInput<bool>("Enter your gender(1 for male and 0 for female): ");
+
     details.likes = getInput<std::string>("Enter your interest(s): ");
     
     //This calls the "about();" function in the "Student" class.
