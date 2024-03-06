@@ -80,7 +80,24 @@ class Human: public Animal{
     public:
     std::string name;
     bool male;
-    
+             void sapien(){
+                 std::cout<<"Properties of you right now:"<<std::endl;
+                 std::string eatin;
+                 std::string gen_der;
+                        if(eatMeat == true){
+                            eatin = "Yes.";
+                           }
+                            else{
+                                    eatin = "No.";
+                                    }
+                        if(male == true){
+                            gen_der = "Male";
+                           }
+                            else{                               
+                                     gen_der = "Female";
+                                    }
+                std::cout<<"Name: "<<name<<".\nGender: "<<gen_der<<"\nEating: "<<eatin<<std::endl;
+             }
 };
 
 
@@ -99,4 +116,19 @@ int main(){
      
      //Calling the function inside of the "Dog" class.
      qual.doge();
+     
+     //Class named "Human" creating an object named 'man'.
+     Human man;
+     
+     //
+     man.name = getInput<std::string>("What's your name? ");
+     
+     //
+     man.eatMeat = getInput<bool>("Are you eating? `1` for yes and `0` for no: ");
+     
+     //
+     man.male = getInput<bool>("What's your gender? `1` for male and `0` for female: ");
+     
+     //
+     man.sapien();
 }
