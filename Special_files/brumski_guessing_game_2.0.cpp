@@ -63,7 +63,7 @@ int main(){
         std::cin>>luckyAnimal;
     }
     
-    //For-loop for when the user enters the lucky animal. 
+    //If-statement for when the user enters the lucky animal. 
     if(luckyAnimal == arr[word]){
         std::cout<<"You guessed the right number, you win!"<<std::endl;
     }
