@@ -65,7 +65,7 @@ int main(){
     
     //If-statement for when the user enters the lucky animal. 
     if(luckyAnimal == arr[word]){
-        std::cout<<"You guessed the right number, you win!"<<std::endl;
+        std::cout<<"You guessed the right animal, you win!"<<std::endl;
     }
     
 }
