@@ -19,9 +19,9 @@ template <typename T>
 int main(){
    
     //Array for storing a string of animals. 
-    std::string arr[7] = {"cow", "dog", "pig", "rat", "cat", "bee", "hen" };
+    std::string arr[8] = {"cow", "dog", "pig", "rat", "cat", "bee", "hen", "ram" };
     
-    //Pointer that points to the arr[7].
+    //Pointer that points to the arr[8].
     std::string *ptr = arr;
     
     //Random number generators. 
@@ -36,17 +36,17 @@ int main(){
     std::string luckyAnimal;
     
     //Number of tries the user is given. 
-    int tries = 3;
+    int tries = 4;
     
     //Entry message. 
     std::cout<<"A game for guessing three-lettered animals."<<std::endl;
     
     //Message 
     std::cout<<"Animals to guess from: ";
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < 7; i++){
         std::cout<<"\""<<ptr[i]<<"\", ";
     }
-    std::cout<<"\""<<arr[6]<<".\""<<std::endl;
+    std::cout<<"\""<<arr[7]<<".\""<<std::endl;
     
     //Prompts the user to enter the lucky animal. 
     std::cout<<"Enter the animal that you think is the lucky animal: ";
@@ -58,14 +58,22 @@ int main(){
         if(tries == 0){
             std::cout<<"You have used up all your tries, you lose!"<<std::endl;
             break;
-        }
+        }    
+            
+        if(tries == 1){
+            std::cout<<"Wrong animal, "<<tries<<" try left. Try again: ";
+        std::cin>>luckyAnimal;
+        }  
+              
+        if(tries >1 && tries <= 3){
         std::cout<<"Wrong animal, "<<tries<<" tries left. Try again: ";
         std::cin>>luckyAnimal;
+        }        
     }
     
     //If-statement for when the user enters the lucky animal. 
     if(luckyAnimal == arr[word]){
         std::cout<<"You guessed the right animal, you win!"<<std::endl;
     }
-    
+      return 0;
 }
