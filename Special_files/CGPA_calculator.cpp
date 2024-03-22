@@ -92,14 +92,14 @@ int main(){
      
 	unsigned int EEE401, EEE402, EEE403, EEE404;
 	 
-	 std::string option = getInput<std::string>("Enter the student's matric number(DE.2021/2945 - DE.2021/2949): ");
+	 std::string option = getInput<std::string>("Enter the student's matric number(DE.2021/2946 - DE.2021/2949): ");
 	 
 	 for(int x = 0; x < option.size(); x++){
 	     option[x] = std::toupper(option[x]);
 	 }
 	 
 	 while(true){
-	     if(option == "DE.2021/2945"){
+	     if(option == "DE.2021/2946"){
 	 
 	 //J. JOHN.
 	 std::cout<<"\nSTUDENT: "<<std::endl;
@@ -234,7 +234,7 @@ int main(){
 	    
 	    
 	    //AMAKA
-	 else if(option == "DE.2021/2946"){
+	 else if(option == "DE.2021/2947"){
 	 
 	 //A. Amaka
 	 std::cout<<"\nSTUDENT: "<<std::endl;
@@ -636,11 +636,19 @@ int main(){
 	    }
 	    
 	    else{
-	        std::string option = getInput<std::string>("Enter the student's matric number(DE.2021/2945 - DE.2021/2949): ");
+	        std::string option = getInput<std::string>("\nEnter the student's matric number(DE.2021/2946 - DE.2021/2949): ");
 	 
 	 for(int x = 0; x < option.size(); x++){
 	     option[x] = std::toupper(option[x]);
 	 }
 	        }
+	        
+	    
+	     option = getInput<std::string>("\nEnter the student's matric number(DE.2021/2946 - DE.2021/2949): ");
+	 
+	 for(int x = 0; x < option.size(); x++){
+	     option[x] = std::toupper(option[x]);
+	      }
+	      
 	 }
 }
