@@ -43,7 +43,7 @@ int main(){
      while(true){
      std::cout<<"Select the logic gate you'd like to use: 1-OR, 2-AND, 3-NOR, 4-NAND, 5-XOR, 6-NOT, 7-end."<<std::endl;
      
-     int option = getInput<int>("Choose any number option: ");
+     int option = getInput<int>("Choose any number option from 1-7 (each number in ascending order directly relates to the functions above this main function, e.g '1' for or_gate): ");
      
      switch(option){   
        case 1:
