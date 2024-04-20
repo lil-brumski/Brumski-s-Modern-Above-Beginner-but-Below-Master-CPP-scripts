@@ -1,3 +1,6 @@
+//The velocities will be randomly generated.
+
+
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -10,16 +13,31 @@ void TIME(){
     std::this_thread::sleep_for(duration);
 }
 
-
-class GoodSpeedSter{ 
-    private:
+class SpeedSter{
+    protected:
       int velocity;
-      
+    
     public:
-      GoodSpeedSter(int v) : velocity(v) {
+       SpeedSter(int v) : velocity(v) {
+           
+       }
+       
+       virtual void display() const{
+           std::cout<<"Running..."<<std::endl;
+       }
+       
+       virtual ~SpeedSter(){
+           
+       }
+};
+
+class GoodSpeedSter: public SpeedSter{     
+    public:
+      GoodSpeedSter(int v) : SpeedSter(v) {
       }
       
-      void display(){
+      void display() const override{
+          SpeedSter::display();
           std::cout<<"You're moving at "<<velocity<<"m/s!"<<std::endl;
       }
       
@@ -28,14 +46,13 @@ class GoodSpeedSter{
 };
 
 
-class BadSpeedSter{
-    private:
-      int velocity;
+class BadSpeedSter: public SpeedSter{
     public:
-      BadSpeedSter(int s) : velocity(s) {
+      BadSpeedSter(int v) : SpeedSter(v) {
       }
     
-      void show(){
+      void display() const override{
+          SpeedSter::display();
           std::cout<<"He's moving at "<<velocity<<"m/s!"<<std::endl;
       }
     
@@ -51,7 +68,7 @@ int main(){
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<int> hero(343,300000);
-    std::uniform_int_distribution<int> villian(343,900000);
+    std::uniform_int_distribution<int> villian(343,1000000);
    
     int tries = 20; 
     int ran;
@@ -67,11 +84,11 @@ int main(){
         ran1 = villian(gen);
         
         {
-         std::unique_ptr<GoodSpeedSter> speed(new GoodSpeedSter(ran));
+         std::unique_ptr<SpeedSter> speed = std::make_unique<GoodSpeedSter>(ran);
         speed->display();
         
-        std::unique_ptr<BadSpeedSter> speed1(new BadSpeedSter(ran1));
-        speed1->show();
+        std::unique_ptr<SpeedSter> speed1 = std::make_unique<BadSpeedSter>(ran1);
+        speed1->display();
         
         if(ran > ran1){
             std::cout<<std::endl;
